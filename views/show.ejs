@@ -1,0 +1,50 @@
+<% include ./partials/header  %>
+<div id="m-top-container" class="ui container">
+    <div class="ui raised segment">
+        <h1 class="center">
+            MOVIES
+        </h1>
+        <div class="ui grid show">
+            <div class="row">
+             <% movies.forEach(function(el){ %>
+                <div class="four wide column space-b">
+                    <div class="ui link card left">
+                        <div class="content">
+                            <div class="ui header">
+                               <%= el.title %>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="right floated meta"><%= el.year %></div>
+                            <%= el.director %>
+                        </div>
+                        <div class="image">
+                            <img src="<%= el.image %>">
+                        </div>
+                        <div class="content">
+                            Rating
+                            <div class="ui star rating" data-rating="<%= el.star %>"></div>
+                        </div>
+                        <div class="content">
+                            <i class="ui icon tags"></i><%= el.genre %>
+                        </div>
+                        <div class="extra content">
+                            <div class="ui large transparent input">
+                                <%= el.text.substring(0,40) %>...
+                            
+                            </div>
+                            <br> 
+                            <br>
+                            <div class="meta">
+                                 <a href="/movie/<%= el._id%>" class="button ui basic blue">View more</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+           <%  }) %>    
+            </div>
+        </div>
+    </div>   
+</div>
+<% include ./partials/footer  %>

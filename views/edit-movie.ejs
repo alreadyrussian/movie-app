@@ -1,0 +1,57 @@
+<% include ./partials/header  %>
+<div id="m-top-container" class="ui container">
+    <div class="ui raised segment">
+        <h1 class="center">
+            EDIT YOUR MOVIE
+        </h1>
+        <div class="ui grid f-orm">
+            <div class="row">
+                <div class="ten wide column">
+                    <form method="POST" action="/movie/<%= data._id %>?_method=PUT" class="ui form">
+                        <div class="field">
+                            <label>Title</label>
+                            <input type="text" name="movie[title]" placeholder="Movie" value="<%= data.title %>">
+                        </div>
+                        <div class="field">
+                            <label>Director</label>
+                            <input type="text" name="movie[director]" placeholder="Director" value="<%= data.director %>">
+                        </div>
+                        <div class="field">
+                            <label>Production Year</label>
+                            <input type="text" name="movie[year]" placeholder="Year" value="<%= data.year %>">
+                        </div>
+                        <div class="field">
+                            <label>Production Year</label>
+                            <input type="text" name="movie[image]" placeholder="Image url" value="<%= data.image %>">
+                        </div>
+                        <div class="field">
+                            <label>Rating</label>
+                            <div class="ui selection dropdown">
+                                <input type="hidden" name="movie[star]">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Rating</div>
+                                <div class="menu">    
+                                    <div class="item" data-value="4">4</div>
+                                    <div class="item" data-value="3">3</div>
+                                    <div class="item" data-value="2">2</div>
+                                    <div class="item" data-value="1">1</div>
+                                    <div class="item" data-value="0">0</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Genre</label>
+                            <input type="text" name="movie[genre]" placeholder="Genre" value="<%= data.genre %>">
+                        </div>
+                        <div class="field">
+                            <label>Text</label>
+                            <textarea name="movie[text]"><%= data.text %></textarea>
+                        </div>
+                        <button class="ui button" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>   
+</div>
+<% include ./partials/footer  %>

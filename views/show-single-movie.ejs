@@ -1,0 +1,51 @@
+<% include ./partials/header  %>
+<div id="m-top-container" class="ui container">
+    <div class="ui raised segment">
+        <h1 class="center">
+            SINGLE MOVIE
+        </h1>
+        <div class="ui centered grid show">
+            <div class="row">
+                <div class="two column space-b">
+                    <div class="ui link card centered">
+                        <div class="content">
+                            <div class="ui header">
+                               <%= data.title %>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="right floated meta"><%=data.year %></div>
+                            <%= data.director %>
+                        </div>
+                        <div class="image">
+                            <img src="<%= data.image %>">
+                        </div>
+                        <div class="content">
+                            Rating
+                            <div class="ui star rating" data-rating="<%= data.star %>"></div>
+                        </div>
+                        <div class="content">
+                            <i class="ui icon tags"></i><%= data.genre %>
+                        </div>
+                        <div class="extra content">
+                            <div class="ui large transparent input">
+                                <%= data.text %>
+                            </div>
+                            <br>
+                            <br>
+                            <div>
+                                <form style="display: inline-block" id="delete" action="/movie/<%= data._id %>?_method=DELETE" method="POST">
+                                    <button class="ui button basic grey">DELETE</button>
+                                </form>
+                                <a href="/movie/<%=data._id %>/edit" class="button ui basic teal">EDIT</a>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+</div>
+<% include ./partials/footer  %>
